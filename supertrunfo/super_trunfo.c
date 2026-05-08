@@ -17,7 +17,7 @@
         scanf(" %[^\n]", cidade); // Lê o nome da cidade
 
         printf("Qual a população dessa cidade?: ");
-        int populaçao;
+        unsigned long int populaçao;
         scanf(" %d", &populaçao); // Lê a população da cidade
 
         printf("Qual a area em km2 dessa cidade?: ");
@@ -34,6 +34,7 @@
 
         float densidade_populacional = populaçao / area;
         float pib_per_capita = pib / populaçao;
+        double super_poder = populaçao + area + pib + pontos_turisticos + pib_per_capita;
 
 
         printf("--------------------------------------\n");
@@ -47,6 +48,7 @@
         printf("O número de pontos turísticos é: %d\n", pontos_turisticos);
         printf("O pib per capita da sua cidade é: %.2f reais.\n", pib_per_capita);
         printf("A densidade populacional da sua cidade é: %.0f hab/km².\n", densidade_populacional);
+        printf("O total Super Poder da sua cidade é: %.0f\n", super_poder);
 
         printf("--------------------------------------\n");
 
@@ -65,7 +67,7 @@
         scanf(" %[^\n]", cidade2);
 
         printf("Qual a população da segunda cidade?: ");
-        int populaçao2;
+        unsigned long int populaçao2;
         scanf(" %d", &populaçao2);
 
         printf("Qual a area em km2 da segunda cidade?: ");
@@ -84,6 +86,9 @@
         float pib_per_capita2 = pib2 / populaçao2;
     
         printf("--------------------------------------\n");
+        double super_poder2 = populaçao2 + area2 + pib2 + pontos_turisticos2 + pib_per_capita2;
+    
+        printf("--------------------------------------------------------\n");
     
         printf("O seu estado 2 é: %s.\n", estado2);
         printf("O seu código 2 é: %s.\n", cod_carta2);
@@ -99,35 +104,65 @@
 
         if (populaçao > populaçao2) 
             printf("A população da primeira cidade é maior do que a segunda.\n");
+        printf("O total Super Poder da sua cidade é: %.0f.\n", super_poder2);
+
+        printf("--------------------------------------\n");
+
+        if (populaçao > populaçao2) {
+            printf("População: Carta 1 venceu.\n");
         } else if (populaçao < populaçao2) {
-            printf("A população da segunda cidade é maior do que a primeira.\n");
+            printf("População: Carta 2 venceu.\n");
         } else {
             printf("A população das duas cidades é igual.\n");
         }
 
         if (area > area2) {
-            printf("A área da primeira cidade é maior do que a segunda.\n");
+            printf("Área: Carta 1 venceu.\n");
         } else if (area2 > area) {
-            printf("A área da segunda cidade é maior do que a primeira.\n");
+            printf("Área: Carta 2 venceu.\n");
         } else {
             printf("A área das duas cidades é igual.\n");
         }
 
         if (pib > pib2) {
-            printf("O pib da primeira cidade é maior do que a segunda.\n");
+            printf("Pib: Carta 1 venceu.\n");
         } else if (pib2 > pib) {
-            printf("O pib da segunda cidade é maior do que a primeira.\n");
+            printf("Pib: Carta 2 venceu.\n");
         } else {
             printf("O pib das duas cidades é igual.\n");
         }
 
         if (pontos_turisticos > pontos_turisticos2) {
-            printf("O número de pontos turísticos da primeira cidade é maior do que a segunda.\n");
+            printf("Pontos turísticos: Carta 1 venceu.\n");
         } else if (pontos_turisticos2 > pontos_turisticos) {
-            printf("O número de pontos turísticos da segunda cidade é maior do que a primeira.\n");
+            printf("Pontos turísticos: Carta 2 venceu.\n");
         } else {
             printf("O número de pontos turísticos das duas cidades é igual.\n");
         }
+
+        if (pib_per_capita > pib_per_capita2) {
+            printf("Pib per capita: Carta 1 venceu.\n");
+        } else if(pib_per_capita2 > pib_per_capita) {
+            printf("Pib per capita: Carta 2 venceu.\n");
+        } else {
+            printf("O Pib per capita das cartas são iguais.");
+        }
+
+        if (densidade_populacional > densidade_populacional2) {
+            printf("Densidade Populacional: Carta 1 venceu.\n");
+        } else if (densidade_populacional2 > densidade_populacional) {
+            printf("Densidade Populacional: Carta 2 venceu.\n");
+        } else {
+            printf("A Densidade Populacional das cidades são iguais.\n");
+        }
+        
+        if (super_poder > super_poder2) {
+            printf("SUPER PODER: Carta 1 venceu.\n");
+        } else if(super_poder2 > super_poder) {
+            printf("SUPER PODER: Carta 2 venceu.\n");
+        } else {
+            printf("O SUPER PODER das duas cartas são iguais.\n");
+        }       
 
         printf("\n---------------------------------------------------\n");
 
